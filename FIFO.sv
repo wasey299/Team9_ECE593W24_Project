@@ -12,7 +12,7 @@ module AsyncFIFO (
     output logic almost_empty
 ):
 
-parameter DEPTH = 256;  // Adjust the depth of the FIFO
+parameter DEPTH = 256; 
 
 reg [7:0] memory [0:DEPTH-1];
 reg [$clog2(DEPTH):0] front_index, rear_index;
