@@ -18,7 +18,7 @@ module AsyncFIFO (
     logic [$clog2(DEPTH):0] front_index, rear_index;
     logic [$clog2(DEPTH):0] count;
 
-    always_ff @(posedge clk_write or negedge rst) 
+    always_ff @(posedge clk_write or posedge clk_read or negedge rst) 
     begin
         if (rst) 
         begin
