@@ -49,4 +49,5 @@ module AsyncFIFO (
     assign full=(count == DEPTH-1)?1:0;
     assign empty = (count == 0)?1:0;
 
+
 endmodule
