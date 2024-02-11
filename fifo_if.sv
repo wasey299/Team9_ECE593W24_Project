@@ -1,3 +1,51 @@
+interface fifo_if(input clk_write,clk_read);
+
+  logic rst;
+  logic write_enable,read_enable;
+  logic full,empty;
+  logic [7:0]data_in;
+  logic [7:0]data_out;
+  logic almost_empty;
+  logic almost_full;
+
+clocking wr_drv @(posedge clk_write);
+ default input #1 output #1;
+  output rst;
+  output write_enable;
+  output data_in;
+  input full;
+  
+endclocking
+
+clocking wr_mon @(posedge clk_write);
+default input #1 output #1;
+  input rst;
+  input write_enable;
+  input data_in;
+endclocking
+
+clocking rd_drv @(posedge clk_read);
+ default input #1 output #1;
+  output read_enable;
+  input empty;
+endclocking
+
+clocking rd_mon @(posedge clk_read);
+default input #1 output #1;
+  input read_enable;
+  input data_out;
+  input full;
+  input empty;
+  input almost_empty;
+  input almost_full;
+endclocking
+
+modport WR_DRV(clocking wr_drv);
+modport WR_MON(clocking wr_mon);
+modport RD_DRV(clocking rd_drv);
+modport RD_MON(clocking rd_mon);
+endinterface
+
 module AsyncFIFO (
     input logic clk_write,
     input logic clk_read,
@@ -25,7 +73,6 @@ module AsyncFIFO (
             front_index <= 0;
             rear_index <= 0;
             count <= 0;
-            data_out <= 0;
         end
 
         else if (write_enable && !full) 
