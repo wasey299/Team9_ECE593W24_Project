@@ -55,3 +55,4 @@ module AsyncFIFO_tb();
     $monitor("rd_clk=%b,RD=%b,WR=%b,wr_clk=%b,Rst=%b,dataIn=%b,dataOut=%b,EMPTY=%b,FULL=%b,almost_full=%b,almost_empty=%b",rd_clk,RD,WR,wr_clk,Rst,dataIn,dataOut,EMPTY,FULL,almost_full,almost_empty);
   end
 endmodule
+//
