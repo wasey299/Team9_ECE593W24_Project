@@ -1,7 +1,7 @@
 vlib work
-vlog AsyncFIFO.sv
-vlog AsyncFIFO_tb.sv
+vlog fifo_if.sv
+vlog top.sv
 
-vsim work.AsyncFIFO_tb
+vsim work.top
 add wave -r *
 run -all
