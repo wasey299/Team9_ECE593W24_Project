@@ -1,5 +1,4 @@
 interface fifo_if(input clk_write,clk_read);
-
   logic rst;
   logic write_enable,read_enable;
   logic full,empty;
@@ -13,8 +12,7 @@ clocking wr_drv @(posedge clk_write);
   output rst;
   output write_enable;
   output data_in;
-  input full;
-  
+  input full; 
 endclocking
 
 clocking wr_mon @(posedge clk_write);
