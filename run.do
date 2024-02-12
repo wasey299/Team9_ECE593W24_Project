@@ -1,7 +1,7 @@
 vlib work
 vlog fifo_if.sv
 vlog top.sv
+vlog package.sv
 
 vsim work.top
-add wave -r *
 run -all
